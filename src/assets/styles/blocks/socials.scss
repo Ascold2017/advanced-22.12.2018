@@ -1,0 +1,23 @@
+.socials {
+    display: flex;
+    &__item {
+        margin-right: 25px;
+		&:last-child {
+            margin-right: 0;
+        }
+			
+    }
+		
+	&__link {
+        opacity: 0.5;
+		color: #ffffff;
+		font-size: 30px;
+		transition: opacity, color 0.5s ease;
+		&:hover {
+            color: #004cd1;
+			opacity: 1;
+        }
+    }
+}
+	
+	

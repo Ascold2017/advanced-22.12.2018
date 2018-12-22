@@ -1,0 +1,86 @@
+.slider-display {
+    max-width: 100%;
+	overflow: hidden;
+	position: relative;
+	&__slide {
+        padding: 5vh 8vh;
+		position: absolute;
+		left: 0;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		opacity: 0;
+		animation: none;
+		animation-fill-mode: forwards;
+		animation-duration: 1s;
+		&--sliding-in-left {
+            animation-name: sliding-in-left;
+			opacity: 1;
+        }
+			
+		&--sliding-in-right {
+            animation-name: sliding-in-right;
+			opacity: 1;
+        }
+			
+		&--sliding-out-left {
+            animation-name: sliding-out-left;
+			opacity: 1;
+        }
+			
+		&--sliding-out-right {
+            animation-name: sliding-out-right;
+			opacity: 1;
+        }
+			
+    }
+		
+	&__img {
+        margin: 0 auto;
+		max-height: 100%;
+    }
+		
+}
+	
+
+@keyframes sliding-in-left {
+    from {
+        transform: translateX(100%);
+    }
+		
+	to {
+        transform: translateX(0)
+    }
+		
+}
+
+@keyframes sliding-out-left {
+    from {
+        transform: translateX(0);
+    }
+		
+	to {
+        transform: translateX(-100%);
+    }	
+}
+
+@keyframes sliding-in-right {
+    from {
+        transform: translateX(-100%);
+    }
+		
+	to {
+        transform: translateX(0);
+    }	
+}
+
+
+@keyframes sliding-out-right{
+    from {
+        transform: translateX(0);
+    }
+		
+	to {
+        transform: translateX(100%);
+    }	
+}

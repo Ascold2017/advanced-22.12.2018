@@ -1,0 +1,46 @@
+.hamburger {
+    width: 40px;
+	height: 35px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	&__span {   
+        display: block;
+		height: 5px;
+		background-color: #ffffff;
+		border-radius: 2px;
+		transition: transform 1s ease;
+		transform-origin: right  center;
+		&.deleted {
+            visibility: visible;
+			opacity: 1;
+			transform: none;
+			transition: visibility 1s ease, opacity 1s ease, transform 1s ease;
+        }
+			
+		&:last-child {
+            margin-bottom: 0;
+        }
+			
+    }
+		
+	&_open {
+        .hamburger__span:first-child {
+            transform: translateX(5px) rotate(-45deg);
+        }
+		
+		.hamburger__span:last-child {
+            transform:  translateX(5px) rotate(45deg);
+        }
+			
+		.hamburger__span.deleted {
+            visibility: hidden;
+			opacity: 0;
+			transform: translateX(-3000px);
+			transition: visibility 1s ease, opacity 1s ease, transform 1s ease;
+        }
+			
+    }
+		
+}
+	

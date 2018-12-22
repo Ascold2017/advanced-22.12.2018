@@ -1,0 +1,40 @@
+.triangles {
+    &__svg {
+        display: block;
+    }
+        
+    &__left, &__right {
+        fill: #ffffff;
+    }
+        
+    &__bottom {
+        background-color: #0d1120;
+        opacity: 0.85;
+        height: 170px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+        
+    &__stars {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%) rotate(190deg);
+        display: block;
+        max-width: 263px;
+        width: 100%;
+        height: 100%;
+        opacity: 0.15;
+    }
+        
+        
+}
+
+.page-works .triangles__left, .triangles__right {
+    fill: #0d1120;
+    opacity: 0.85;
+}
+	

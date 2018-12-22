@@ -93,14 +93,14 @@ gulp.task("svg", done => {
       $gp.cheerio({
         run($) {
           $("[fill], [stroke], [style], [width], [height]")
-            .removeAttr("fill")
-            .removeAttr("stroke")
-            .removeAttr("style");
+            //.removeAttr("fill")
+            //.removeAttr("stroke")
+            //.removeAttr("style");
         },
         parserOptions: { xmlMode: true }
       })
     )
-    .pipe($gp.replace("&gt;", ">"))
+    //.pipe($gp.replace("&gt;", ">"))
     .pipe(
       $gp.svgSprite({
         mode: {

@@ -1,0 +1,91 @@
+extends ../main.layout.pug
+
+block variables
+	- var title = 'Мои работы'
+	- var pageClass = 'page-works'
+
+block trianglesBottom
+	div(class = "triangles__bottom" )
+		h1.header__title Мои работы
+		.triangles__stars
+			svg(viewBox="0 0 263 171")
+				use(xlink:href="assets/images/icons/sprite.svg#stars2")
+
+block headerBottom
+	a(href="#main" id="arrow-down").header__mouse.header__mouse_works.arrow
+		i(aria-hidden="true" class="fa fa-chevron-down")
+
+block scripts
+	script(src='about.bundle.js')
+
+block content
+	main#main.main 
+		section.works#works-slider
+			-
+				var slides = [
+					{ photo: 'assets/images/photo.jpg', techs: 'Stack 1', title: 'Title 1', isActive: true },
+					{ photo: 'assets/images/photo.jpg', techs: 'Stack 2', title: 'Title 2', isActive: false  },
+					{ photo: 'assets/images/photo.jpg', techs: 'Stack 3', title: 'Title 3', isActive: false  },
+				]
+			div(id='works-slider-info', class=`slider-info works__info`)
+				each slide in slides
+					div(class=`slider-info__slide ${slide.isActive ? 'slider-info__slide--active' : ''}`)
+						div(class=`slider-info__block`)
+							h3.slider-info__title= slide.title
+							p.slider-info__text= slide.techs
+							a(href="#").button-fill.slider-info__link Посмотреть сайт
+
+			div(id='works-slider-display', class=`slider-display works__display` v-if="slides.length")
+				each slide in slides
+					div(class= `slider-display__slide ${slide.isActive ? 'slider-display__slide--sliding-in-left' : ''}`)
+						img(src=slide.photo, alt="").slider-display__img.img-responsive
+
+			.works__preview.slider-preview-block
+				div(id='works-slider-prev' class=`slider-preview slider-preview_left`)
+					each slide in slides
+						div(class= `slider-preview__slide ${slide.isActive ? 'slider-preview__slide--sliding-in-bottom' : ''}`)
+							div(style=`background-image: url(${slide.photo})`).slider-preview__slide-img
+
+				div(id='works-slider-next', class=`slider-preview slider-preview_right` @click="nextSlide")
+					each slide in slides
+						div(class= `slider-preview__slide ${slide.isActive ? 'slider-preview__slide--sliding-in-top' : ''}`)
+							div(style=`background-image: url(${slide.photo})`).slider-preview__slide-img
+				
+		section.reviews.img
+			.reviews__top
+				h2.reviews__title Что обо мне<br>говорят
+				.reviews__svg
+					svg( viewBox="0 0 173 202")
+						use(xlink:href="assets/images/icons/sprite.svg#stars3")
+
+			#reviews-slider.reviews-slider.reviews__slider
+				.reviews-slider__prev
+				.reviews-slider__next
+
+				.reviews-slider__wrapper
+					.reviews-slider__track(style="transform: translateX(0)")
+						-
+							var slides = [
+								{ photo: 'assets/images/photo.jpg', text: 'lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum', author: 'Lorem Ipsum', post: '22.12.2018'},
+								{ photo: 'assets/images/photo.jpg', text: 'lorem ipsum lorem ipsum lorem ipsum lorem ipsum', author: 'Lorem Ipsum', post: '22.12.2018'},
+								{ photo: 'assets/images/photo.jpg', text: 'lorem ipsum lorem ipsum lorem ipsum lorem ipsum', author: 'Lorem Ipsum', post: '22.12.2018'},
+							]
+						each slide in slides
+							.reviews-slider__slide
+								.reviews-slider__photo 
+									img(src=slide.photo alt="").img-responsive
+								p.reviews-slider__text= slide.text
+								p.reviews-slider__author= slide.author
+								p.reviews-slider__post= slide.post
+
+			.reviews__form
+				h3.reviews__form__title Связаться со мной
+				form#sendform.reviews__sendform
+					input(type="text", name="name" placeholder="Ваше имя" required).reviews__input
+					input(type="text", name="email" placeholder="Ваш email" required).reviews__input
+					textarea(name="message" placeholder="Ваше сообщение" required).reviews__input.reviews__input_textarea
+					.reviews__buttons
+						button(type="submit").reviews__button.button-fill Отправить
+						button(type="reset").reviews__button.button-fill Очистить
+			a(href="#main" id="arrow-up").reviews__mouse.arrow
+				i(aria-hidden="true" class="fa fa-chevron-up")

@@ -5,5 +5,9 @@
   "text-color": "#455a64",
   "grey": "#373e42",
   "light-grey": "#dfdcd5",
-  "test" : "#000"
+  "ligtBlue" : "#0548be",
+  "darkBlue": "#083c96",
+  "gray": "#474b57",
+  "default-font": "Roboto",
+  "fa-font-path": "assets/fonts"
 }

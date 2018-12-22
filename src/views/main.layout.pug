@@ -1,5 +1,6 @@
 include ./common/_mixins
 block variables
+  - var pageClass = ''
 
 doctype html
 html(lang="ru")
@@ -10,13 +11,14 @@ html(lang="ru")
     
     title Portfolio | #{title}
     link(rel='stylesheet' href='main.min.css')
-  body
+  body(class= pageClass)
     .wrapper
+      include ./common/header.pug
       .maincontent
         block content
 
       include ./common/footer.pug
 
-    script(src='bootloader.bundle.js')
-    script(src='vendor.bundle.js')
+    //script(src='bootloader.bundle.js')
+    //script(src='vendor.bundle.js')
     block scripts

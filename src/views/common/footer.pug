@@ -1,2 +1,15 @@
-footer.footer
-  h2 Copyright &copy;
+footer(class="footer")
+	.wrapper
+		.footer__container
+			.footer__block
+				span.footer__text.text Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool.
+			.footer__block
+				+nav('footer__nav nav_footer')
+				+socials('footer__socials')
+			.footer__block
+				.contacts
+					.contacts__item Mihail Ascold
+					.contacts__item ascold96@gmail.com
+					.contacts__item +38 068 196 46 28
+					.contacts__item Одесса, Украина
+	.footer__copyright © Михаил Погосян | Создано с любовью в LoftSchool | 2017

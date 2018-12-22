@@ -1,0 +1,23 @@
+.works {
+    overflow-x: hidden;
+	background-color: #f2f0e8;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 500px 250px;
+	grid-template-areas: "info display" "info preview";
+
+	&__info {
+        grid-area: info;
+    }
+		
+	&__display {
+        grid-area: display;
+		background-color: #e3e2de;
+    }
+		
+	&__preview {
+        grid-area: preview;
+    }
+		
+}
+	

@@ -1,10 +1,33 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&subset=cyrillic');
 
 @font-face {
-  font-family: 'bernier';
-  src: url('/assets/fonts/bernierregular-regular-webfont.woff') format('woff'), 
-  url('/assets/fonts/bernierregular-regular-webfont.woff2') format('woff2');
+  font-family: 'Sansus Webissimo';
+  src: url('assets/fonts/Sansus-Webissimo-Regular.woff') format('woff'), 
+  url('assets/fonts/Sansus-Webissimo-Regular.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
   font-display: block;
 }
+/*
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('./assets/fonts/FontAwesome.woff') format('eot'), 
+  url('./assets/fonts/FontAwesome.ttf') format('ttf');
+}
+
+@font-face {
+  font-family: 'fontawesome-webfont';
+  src: url('./assets/fonts/fontawesome-webfont.woff') format('eot'), 
+  url('./assets/fonts/fontawesome-webfont.ttf') format('ttf');
+}*/
+@include font-face("FontAwesome", 'FontAwesome?v=4.7.0');
+@include font-face("fontawesome-webfont", 'fontawesome-webfont?v=4.7.0');
+@include font-face("Roboto", 'Roboto-Regular', 400);
+@include font-face("Roboto", 'Roboto-RegularItalic', 400, italic);
+@include font-face("Roboto", 'Roboto-Bold', 700);
+@include font-face("Roboto", 'Roboto-BoldItalic', 700, italic);
+@include font-face("Roboto", 'Roboto-Medium', 500);
+@include font-face("Roboto", 'Roboto-MediumItalic', 500, italic);
+@include font-face("Roboto", 'Roboto-Light', 300);
+@include font-face("Roboto", 'Roboto-LightItalic', 300, italic);
+@include font-face("Roboto", 'Roboto-Italic', 400, italic);

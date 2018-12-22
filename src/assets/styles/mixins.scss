@@ -1,0 +1,72 @@
+@mixin big-title {
+	color: $gray;
+	font-family: "Sansus Webissimo";
+	font-size: 63px;
+	font-weight: 400;
+	line-height: 66px;
+	text-transform: uppercase;
+	letter-spacing: 1.57px;
+	margin-top: 70px;
+	margin-bottom: 70px;
+	text-align: center;
+}
+
+@mixin medium-title {
+	color: $gray;
+	font-family: "Sansus Webissimo";
+	font-size: 35px;
+	font-weight: 400;
+	line-height: 41px;
+	text-transform: uppercase;
+	text-align: center;
+	margin-bottom: 40px;
+}
+
+
+
+@mixin text {
+	color: $gray;
+	font-family: Roboto;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 26px;
+	padding-bottom: 20px;
+}
+	
+@mixin text-accent {
+	color: $ligtBlue;
+	font-family: Roboto;
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 26px;
+}
+
+@mixin underline-title {
+	position: relative;
+	&::after {
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+		bottom: -35px;
+		content: "";
+		display: block;
+		width: 89px;
+		height: 3px;
+		background-color: $gray;
+	}
+		
+}
+	
+	
+@mixin font-face($font-family, $url, $font-weight: null, $font-style: null) {
+	@font-face {
+		font-family: $font-family;
+		src: url('assets/fonts/#{$url}.eot');
+		src: url('assets/fonts/#{$url}.eot?#iefix') format('embedded-opentype'),
+		     url('assets/fonts/#{$url}.woff') format('woff'),
+		     url('assets/fonts/#{$url}.ttf') format('truetype'),
+		     url('assets/fonts/#{$url}.svg') format('svg');
+		font-weight: $font-weight;
+		font-style: $font-style;
+	}
+}

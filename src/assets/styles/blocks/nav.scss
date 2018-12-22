@@ -1,0 +1,121 @@
+
+.nav {
+    //fullscreen nav start
+	&_fullscreen {
+        position: fixed;
+        display: grid;
+        align-items: center;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        height: 100vh;
+        z-index: 998;
+        opacity: 0;
+        visibility: hidden;
+        transition:  opacity 1s ease, visibility 1s ease;
+        &::before, &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+            background-color: rgba(37, 52, 104, 0.87);
+        }
+            
+        &::before {
+            right: 100%;
+            transition: right 1s ease;
+        }
+            
+        &::after {
+            left: 100%;
+            transition: left 1s ease;
+        }
+
+        .nav__list {
+            list-style: none;
+            opacity: 0;
+            transform: scale3d(0,0,0);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+            
+        .nav__item {
+            display: block;
+        }
+            
+        .nav__link {
+            display: block;
+            @include big-title;
+            @include underline-title;
+            color: #ffffff;
+            margin: 10vh 0;
+            &::after {
+                opacity: 0;
+                background-color: #ffffff;
+                transition: opacity  0.5s ease;
+            }
+                
+            &:hover::after {
+                opacity: 1;
+            }
+               
+        }
+          
+            
+    }
+        
+      
+    &_active {
+        opacity: 1;
+        visibility: visible;
+        transition:  opacity 1s ease, visibility 1s ease;
+        &::before { 
+            right: 50%;
+        }
+            
+        &::after {
+            left: 50%;
+        }
+            
+        .nav__list {
+            opacity: 1;
+            transform: scale3d(1,1,1);
+            transition: opacity 1s ease, transform 1s ease;
+        }   
+            
+    }
+    
+    //fullscreen nav end
+    //footer nav
+    &_footer {
+        margin-bottom: auto;
+        .nav__list {
+            display: flex;
+        }
+           
+        .nav__item {
+            margin-right: 40px;
+            &:last-child {
+                margin-right: 0;
+            }
+                
+        }
+            
+        .nav__link {
+            color: #ffffff;
+            font-family: Roboto;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 24px;
+            transition: color 0.5s ease;
+            &:hover {
+                color: $ligtBlue;
+            }
+        } 
+    }  
+}
+	
+

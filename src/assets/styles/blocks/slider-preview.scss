@@ -1,0 +1,141 @@
+.slider-preview-block {
+    display: flex;
+	overflow: hidden;
+}
+	
+.slider-preview {
+    &_left, &_right {
+        flex: 0 0 50%;
+		overflow: hidden;
+		position: relative;
+		cursor: pointer;
+		&::before, &::after {
+            content: "";
+			position: absolute;
+			display: block;
+        }
+			
+		&::after {
+            left: 0;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			background-color: rgba(170, 171, 183, 0.7);
+			transition: all 0.5s ease;
+        }
+			
+		&::before {
+            left: 50%;
+			top: 50%;
+			transform: translateX(-50%) translateY(-50%);
+			color: #ffffff;
+			font-size: 30px;
+			z-index: 1;
+			font-family: fontawesome;
+			transition: all 0.5s ease;
+			text-shadow: 0 2px 2px rgba(0, 0, 0, 0.16);
+        }
+			
+		&:hover {
+            &::after {
+                background-color: rgba(126, 127, 138, 0.7);
+            }
+				
+        }
+    }
+		
+	&_right::before {
+        content: "\f077";
+    }
+		
+	&_left::before {
+        content: "\f078";
+    }
+		
+	&__slide-img {
+        background-size: contain;
+		background-position: center;
+		background-repeat: no-repeat;
+		width: 100%;
+		height: 100%;
+    }
+		
+	&__slide {
+        height: 250px;
+		overflow: hidden;
+		max-width: 100%;
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		top: 0;
+		opacity: 0;
+		animation: none;
+		animation-fill-mode: forwards;
+		animation-duration: 1s;
+		&--sliding-in-top {
+            animation-name: sliding-in-top;
+			opacity: 1;
+        }
+			
+		&--sliding-in-bottom {
+            animation-name: sliding-in-bottom;
+			opacity: 1;
+        }
+			
+		&--sliding-out-top {
+            animation-name: sliding-out-top;
+			opacity: 1;
+        }
+			
+		&--sliding-out-bottom {
+            animation-name: sliding-out-bottom;
+			opacity: 1;
+        }
+			
+    }
+		
+}
+	
+
+@keyframes sliding-in-top {
+    from {
+        transform: translateY(100%);
+    }
+		
+	to {
+        transform: translateY(0);
+    }
+		
+}
+	
+
+@keyframes sliding-out-top {
+    from {
+        transform: translateY(0)
+    }
+		
+	to {
+        transform: translateY(-100%)
+    }
+}
+
+@keyframes sliding-in-bottom {
+    from {
+        transform: translateY(-100%)
+    }
+		
+	to {
+        transform: translateY(0)
+    }
+}
+
+@keyframes sliding-out-bottom {
+    from {
+        transform: translateY(0)
+    }
+		
+	to {
+        transform: translateY(100%)
+    }
+}

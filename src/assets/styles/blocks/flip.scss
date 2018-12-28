@@ -1,0 +1,29 @@
+.flip {
+    transform-style: preserve-3d;
+	will-change: transform;
+	position: relative;
+	transition: transform 1s ease;
+	height: 400px;
+	max-width: 380px;
+	width: 100%;
+	margin: 0 auto;
+	&_rotate {
+        transform: rotateY(180deg);
+    }   
+		
+	&__elem {
+        backface-visibility: hidden;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 0;
+		&_back{
+            transform: rotateY(180deg);
+        }
+			
+    }
+		
+}
+	

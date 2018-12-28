@@ -1,0 +1,81 @@
+
+.index-card {
+    &__main {
+        padding: 40px 20px 35px;
+		background-color: rgba(28, 31, 41, 0.5);
+    }
+		
+	&__title {
+        font-size: 28px;
+		font-weight: 500;
+		line-height: 34px;
+		font-family: Roboto;
+		color: #ffffff;
+		text-align: center;
+		&_sign-in {
+            @include medium-title;
+			line-height: 34px;
+			color: #ffffff;
+			margin-bottom: 32px;
+        }
+			
+    }
+		
+	&__socials {
+        justify-content: center;
+		margin-top: 27px;
+    }
+		
+	&__bottom {
+        display: flex;
+    }
+		
+	&__button {
+        display: block;
+		border-right: 2px solid rgba(222, 227, 231, 0.5);
+		flex: 1 1 auto;
+		padding-left: 10px;
+		padding-right: 10px;
+		text-align: center;
+		&:last-child {
+            border-right: 0;
+        }
+			
+    }
+		
+	&_sign-in {
+        .index-card__button {
+            width: 50%;
+        }
+			
+    }
+		
+	&__input {
+        margin-bottom: 20px;
+    }
+		
+	&__small {
+        color: rgba(255, 255, 255,0.8);
+		font-family: Roboto;
+		font-size: 16px;
+		font-weight: 700;
+		margin-top: 16px;
+		text-align: center;
+    }
+		
+	&__radios {
+        display: flex;
+		justify-content: center;
+		margin-top: 12px;
+    }
+		
+}
+	
+		
+@media only screen and (max-width : 480px) {
+    .index-card {
+        margin-top: 55px;
+    }
+		
+}
+	

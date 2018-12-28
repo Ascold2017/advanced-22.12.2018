@@ -1,0 +1,35 @@
+.login-input {
+    display: flex;
+	&__icon {
+        display: block;
+		width: 45px;
+		background-color: #f0efe9;
+		color: #c2cacc;
+		line-height: 45px;
+		text-align: center;
+		transition: color 0.5s ease;
+		&_success {
+            color: #2f2fb8;
+        }
+			
+		&_danger {
+            color: #f43344;
+        }
+			
+    }
+		
+	&__input {
+        display: block;
+		border: 0;
+		height: 45px;
+		width: calc(100% - 45px);
+		background-color: #ffffff;
+		color: #373e42;
+		font-family: Roboto;
+		font-size: 16px;
+		font-weight: 400;
+		padding: 0 20px;
+    }
+		
+}
+	

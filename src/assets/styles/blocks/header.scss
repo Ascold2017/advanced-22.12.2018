@@ -1,0 +1,93 @@
+.header {
+    display: grid;
+	align-items: center;
+	min-height: 650px;
+	height: 100vh;
+	background-position: center;
+	background-size: cover;
+	position: relative;
+	overflow: hidden;
+	padding-bottom: 170px;
+	&__triangles {
+        position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+    }   
+	//Exist only in works page
+	&__title {
+		@include big-title;
+        color: #ffffff;
+		margin: 0;
+    }
+	
+	&__top {
+        display: flex;
+		justify-content: space-between;
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		padding: 28px 31px 0;
+		z-index: 999;
+    }
+		
+	&__mouse {
+        text-align: center;
+		display: inline-block;
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+		bottom: 70px;
+		z-index: 1;
+		&_works {
+            bottom: 200px
+        }
+			
+    }
+
+    //For index page
+	&_welcome {
+        display: flex;
+        justify-content: flex-end;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        padding: 24px 100px;
+        height: auto;
+        min-height: auto;
+    }
+    
+		
+}
+
+@media screen and (max-width: 768px) {
+    .header {
+        padding-bottom: 130px;
+		&_welcome {
+            padding: 20px;
+        }
+			
+		&__title {
+            font-size: 49px;
+			line-height: 70px;	
+        }
+			
+    }
+		
+}
+	
+		
+@media only screen and (max-width: 480px) {
+    .header {
+        justify-content: center;
+		padding: 10px;
+		&__title {
+            font-size: 35px;
+        }		
+    }
+}
+	
+	
+	

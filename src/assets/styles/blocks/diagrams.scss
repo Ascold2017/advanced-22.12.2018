@@ -1,0 +1,54 @@
+.diagrams {
+    &__title {
+        color: $gray;
+		font-family: Roboto;
+		font-size: 28px;
+		font-weight: 500;
+		line-height: 32px;
+		margin: 25px 0 15px;
+    }
+		
+	&__row {
+        display: flex;
+    }
+		 
+	&__diagram {
+        margin-right: 27px;
+		&:last-child {
+            margin-right: 0;
+        }
+			
+    }
+		
+}
+	
+@media screen and (max-width: 1200px) {
+    .diagrams {
+        &__row {
+            flex-wrap: wrap;
+			margin-bottom: -20px;
+        }
+			
+		&__diagram {    
+            margin-right: 10px;
+			margin-bottom: 20px;
+        }
+			
+    }
+		
+}
+	
+@media screen and (max-width: 768px) {
+    .diagrams {
+        &__title {
+            text-align: center;
+        }
+			
+		&__row {
+            justify-content: center;
+        }
+			
+    }
+		
+}
+	

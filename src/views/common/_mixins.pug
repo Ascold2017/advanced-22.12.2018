@@ -1,0 +1,54 @@
+mixin icon(iconName, iconClass)
+	svg(class=`${iconClass}`)
+		use(xlink:href=`/assets/images/icons/sprite.svg#${iconName}`)
+
+mixin image(imagePath, imageAlt, imageClass)
+	img(src=`/assets/images/${imagePath}`, alt=`${imageAlt}`, class=`${imageClass}`)
+
+mixin card-avatar(subClass, title, subtitle, nosvg)
+	.card-avatar
+		if(!nosvg)
+			.card-avatar__stars
+				svg.card-avatar__svg
+					use(xlink:href="assets/images/sprite.svg#stars1")
+		.card-avatar__photo
+			img(src="assets/images/photo.jpg", alt="MyFace").img-responsive
+		.card-avatar__titles
+			h1(class="card-avatar__title " + subClass)= title
+			p.card-avatar__subtitle= subtitle
+
+mixin checkbox(name, title, inputClass, id)
+	label(class="checkbox " + inputClass)
+		input(type="checkbox", name=name, id=id, class="checkbox__input" required)
+		span.checkbox__span
+			i(aria-hidden="true" class="fa fa-check")
+		span.checkbox__title= title
+
+mixin radio( name, title, inputClass, value)
+	label(class="radio " + inputClass)
+		input(id=id, type="radio", name=name, class="radio__input" value=value)
+		span.radio__span
+			i(aria-hidden="true" class="fa fa-circle")
+		span.radio__title= title
+
+mixin logInput(iconClass, typeInput, placeholderInput, subclass, inputClass, name)
+	div(class="login-input " + inputClass)
+		span(class="login-input__icon "+subclass)
+			i(aria-hidden="true" class="fa "+iconClass)
+		input(id=name type=typeInput, placeholder=placeholderInput name=name required).login-input__input
+
+mixin parallax-block(className)
+	div(class=`${className} parallax-block`)
+		.parallax-block__layer
+			picture
+				source( type="image/webp" srcset="assets/images/no_bg_webp.webp").img-responsive.parallax-block__img
+				source(media="(max-width: 992px )", srcset="assets/images/no_bg_tablet.png").img-responsive.parallax-block__img
+				img(src="assets/images/no_bg.png", alt="").img-responsive.parallax-block__img
+
+mixin socials(className)
+	-var socials= ['vk', 'github', 'skype']
+	ul(class="socials " + className)
+		each social in socials
+			li.socials__item
+				a(href="#").socials__link
+					i(aria-hidden="true" class="fa fa-"+social)

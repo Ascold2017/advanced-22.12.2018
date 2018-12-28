@@ -1,0 +1,51 @@
+extends ../main.layout.pug
+
+block variables
+	- var title = 'Обо мне'
+
+
+block content
+	div(style="height:500px")
+	main#main.main
+		section.about
+			.about__info.about__info_title
+				h2.about__title.about__title_main Обо мне
+			article.about__info.about__info_info
+				.about__container
+					.about__photo
+						img(src="assets/images/photo.jpg", alt="MyFace").img-responsive
+					h3.about__subtitle Кто я
+					.about__text
+						p Я веб разработчик из Одессы. Мне 22 года. Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
+						p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+
+			article.about__info.about__info_diagrams
+				.about__container
+					h3.about__title.about__title_etc Чем я могу быть<br>вам полезен
+					.about__text
+						span Больше всего меня привлекет Frontend разработка, но я также знаком и могу решать не сложные задачи на Backend. Но давайте по порядку.
+				.about__diagrams.diagrams#diagrams(style="display: none;")
+					div(v-for="skillType in skillTypes")
+						h4.diagrams__title
+							| {{ skillType.title }}
+						.diagrams__row
+							div(v-for="skill in skillsByCategory(skillType.id)")
+								div(:data-percent="skill.percents" class="svg-diagram diagrams__diagram" v-animate="skill.percents") 
+									svg( class="svg-diagram__circles" viewBox='0 0 110 110')
+										circle(r="45" cx="50%" cy="50%" fill="none" class="svg-diagram__circle svg-diagram__circle_first")
+										circle(r="45" cx="50%" cy="50%"  transform="rotate(-90 55 55)" class="svg-diagram__circle svg-diagram__circle_second")
+									span.svg-diagram__title
+										| {{ skill.title }}
+		section.map
+			.map__contacts
+				h3.map__title Контакты
+				.map__container
+			#map.map__map
+
+block scripts
+	script(src="about.bundle.js")
+	
+				
+
+		
+

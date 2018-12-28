@@ -1,0 +1,32 @@
+.content{
+    min-height: 100vh;
+	display: grid;
+	position: relative;
+	&_welcome {
+        grid-template-rows: 1fr;
+		align-items: center;
+		padding: 24px 100px 0;
+    }
+		
+}
+	
+
+@media only screen and (max-width : 768px) {
+    .content {
+        &_welcome {
+            min-height: 650px;
+			height: 100vh;
+			padding: 20px;
+        }
+    }	
+}
+	
+@media only screen and (max-width : 480px) {
+    .content {
+        &_welcome {
+            padding: 10px
+        }
+    }	
+}
+			
+		

@@ -1,0 +1,31 @@
+.parallax-block {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    background-color: #223b65;
+    overflow: hidden;
+    &__layer {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 0;
+        width: 180%;
+    }
+        
+    &__img {
+        position: absolute;
+        bottom: 0;
+        will-change: transform;
+        width: 100%;
+    }
+        
+    &_mouse {
+        .parallax-block__layer {
+            width: 120%;
+        }
+    }
+        
+}

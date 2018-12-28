@@ -1,0 +1,34 @@
+extends ../auth.layout.pug
+
+block content
+	header.header.header_welcome
+		a(href="#")#to-auth.button-transparent Авторизоваться
+		
+	+parallax-block('content__bg parallax-block_mouse')
+	.flip#flip-container
+		article.index-card.flip__elem
+			.index-card__main
+				+card-avatar("",'Михаил Никитенко', 'Сайт веб-разработчика', 'nosvg')
+				+socials('index-card__socials')
+			.index-card__bottom
+				a(href="./works.html").index-card__button.button-fill Мои работы
+				a(href="./about.html").index-card__button.button-fill Обо мне
+				a(href="./blog.html").index-card__button.button-fill Блог
+
+		form(method="POST" id='sign-in').index-card.index-card_sign-in.flip__elem.flip__elem_back
+			.index-card__main
+				h2.index-card__title.index-card__title_sign-in Авторизуйтесь
+				.index-card__form
+					+logInput("fa-user", "text", "Логин", "", "index-card__input", "user-login")
+					+logInput("fa-key", "password", "Пароль", "", "index-card__input", "user-password")
+					+checkbox("check_first", "Я человек", "index-card__check", "user-check-1")
+					p.index-card__small Вы точно не робот?
+					.index-card__radios
+						+radio( "check_second","Да", "index-card__radio", "y")
+						+radio( "check_second","Не уверен", "index-card__radio", "n")
+			.index-card__bottom
+				button(type="reset" id="log-reset" class="").index-card__button.button-fill На Главную
+				button(type="submit" id="log-submit").index-card__button.button-fill Войти
+	.footer.footer_welcome
+		p.footer__copyright.footer__copyright_in-index © Михаил Никитенко | создано с любовью в LoftSchool | 2017
+		 

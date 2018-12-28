@@ -1,0 +1,152 @@
+
+.about {
+    display: grid;
+	grid-template-columns:  25% 25% 50%;
+	grid-template-areas: "title info diagrams";
+	min-height: 100vh;
+	&__title {
+        position: relative;
+		&::before {
+            content: "";
+			width: 170px;
+			height: 110px;
+			//background-image: url(./assets/images/icons/stars2.png);
+			background-size: cover;
+			position: absolute;
+			z-index: -1;
+			top: 50%;
+			left: 50%;
+			transform: translateX(-50%) translateY(-50%);
+        }
+			
+		&_main {
+            @include big-title;
+			margin-top: 0;
+			margin-bottom: 0;
+        }
+			
+		&_etc {
+            @include medium-title;
+			@include underline-title;
+			margin-bottom: 48px;
+			&::after {
+                bottom: -22px;
+            }
+				
+        }
+			
+    }
+		
+		
+	&__info {
+        padding: 20px;
+		&:last-child {
+            padding: 15px 40px;
+			background-color: #eae8e2;
+        }
+			
+		&_title {
+            grid-area: title;
+        }
+			
+		&_info {
+            grid-area: info;
+        }
+			
+		&_diagrams {
+            grid-area: diagrams;
+        }
+			
+    }
+		
+    &__text {
+        p {
+            @include text;
+			&:last-child {
+                padding-bottom: 0;
+            }
+				
+        }
+			
+		span {
+            @include text;
+			padding-bottom: 0;
+        }
+			
+    }
+    
+		
+	&__subtitle {
+        @include medium-title;
+		@include underline-title;
+		margin-top: 30px;
+		margin-bottom: 60px;
+		&::after {
+            bottom: -30px;
+        }
+			
+    }
+		
+	&__photo {
+        max-height: 390px;
+		overflow: hidden;
+    }
+		
+	&__diagrams {
+        margin-top: 45px;
+    }
+		
+}
+	
+
+
+@media screen and (max-width: 1200px) {
+	.about {
+        grid-template-columns:  50% 50%;
+		grid-template-areas: "title diagrams" "info diagrams";
+		grid-auto-flow: row dense;
+		grid-template-rows: 110px 1fr;
+		&__info {
+            padding: 20px 6vw;
+        }
+			
+    }
+		
+}
+
+@media screen and (max-width: 768px) {
+    .about {
+        display: block;
+		background-color: #f2f0e8;
+		&__container {
+            max-width: 580px;
+			width: 100%;
+			margin: 0 auto;
+			padding: 0 24px;
+        }
+    }	
+}
+	
+		
+
+@media screen and (max-width: 480px) {
+    .about {
+        &__info {
+            padding: 0;
+			&:first-child {
+                padding: 20px 0;
+            }
+				
+			&:last-child {
+                padding: 20px 0 0;
+            }	
+        }	
+		&__container {
+            padding: 0 10px;
+        }
+		&__photo {
+            margin: 0 -10px;
+        }
+    }
+}
+	

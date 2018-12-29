@@ -1,15 +1,30 @@
 
-export default function(elem) {
+export default function(target) {
 
-    //This method watch - whether the elem is in field of view
-    let $window = window,
-        docViewTop = $window.scrollY,
-        docViewBottom = docViewTop + $window.innerHeight,
-        elemTop = elem.offsetTop,
-        elemBottom = elemTop + elem.offsetHeight;
-        
-    //True, if visible top or bottom part block in window
-    return (((elemTop <= docViewBottom) && (docViewBottom <= elemBottom))
-            ||((docViewTop <= elemBottom) && (elemTop <= docViewBottom)));
+    const targetPosition = {
+        top: window.pageYOffset + target.getBoundingClientRect().top,
+        left: window.pageXOffset + target.getBoundingClientRect().left,
+        right: window.pageXOffset + target.getBoundingClientRect().right,
+        bottom: window.pageYOffset + target.getBoundingClientRect().bottom
+    };
+    // Получаем позиции окна
+    const windowPosition = {
+        top: window.pageYOffset,
+        left: window.pageXOffset,
+        right: window.pageXOffset + document.documentElement.clientWidth,
+        bottom: window.pageYOffset + document.documentElement.clientHeight
+    };
+    
+    if (targetPosition.bottom >= windowPosition.top && // Если позиция нижней части элемента больше позиции верхней чайти окна, то элемент виден сверху
+        targetPosition.top <= windowPosition.bottom &&// Если позиция верхней части элемента меньше позиции нижней чайти окна, то элемент виден снизу
+        targetPosition.right > windowPosition.left && //Если позиция правой стороны элемента больше позиции левой части окна, то элемент виден слева
+        targetPosition.left < windowPosition.right //Если позиция левой стороны элемента меньше позиции правой чайти окна, то элемент виден справа
+        ) {  
+        // Если элемент полностью видно, то запускаем следующий код
+        return true;
+    } else {
+        // Если элемент не видно, то запускаем этот код
+        return false;
+    }
     
 }

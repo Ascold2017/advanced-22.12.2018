@@ -1,0 +1,25 @@
+extends ../main.layout.pug
+
+block variables
+	- var title = 'Блог'
+
+
+block content
+	main.main.content.content_blog
+		.blog#blog
+			nav#blog-nav.blog-nav
+
+				ul#blog-nav-list.blog-nav__list
+					li(v-for="post in posts").blog-nav__item
+						a(:href="'#post-' + post.id").blog-nav__link
+							| {{ post.title }}
+			ul.blog__list
+				li(:id="'post-' + post.id" v-for="post in posts").blog__item
+					h2.blog__title
+						| {{ post.title }}
+					p.blog__time
+						| {{ post.created_at | correctDate }}
+					p.blog__text(v-html="post.content")
+
+block scripts
+	script(src="blog.bundle.js")

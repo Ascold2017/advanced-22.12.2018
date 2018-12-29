@@ -1,0 +1,54 @@
+
+.blog {
+    display: grid;
+	grid-template-columns: 2fr 3fr 1fr;
+	&__item {
+        padding-top: 65px;
+		padding-bottom: 70px;
+		border-bottom: 3px solid rgba(55, 62, 66, 0.5);
+		&:first-child {
+            padding-top: 30px;
+        }
+			
+		&:last-child {
+            border-bottom: 0;
+        }
+			
+    }
+		
+	&__title {
+        @include medium-title;
+		text-align: left;
+		margin-bottom: 25px;
+    }
+		
+	&__time {
+        @include text-accent;
+		margin-bottom: 25px;
+		display: block;
+    }
+		
+	p {
+        @include text;
+		margin-bottom: 15px;
+    }
+		
+}
+	
+
+@media screen and (max-width: 1200px) {
+    .blog {
+        grid-template-columns: 1fr 2fr;
+		padding: 30px 24px 0;
+    }
+		
+}
+	
+@media screen and (max-width: 930px) {
+    .blog {
+        grid-template-columns: 1fr;
+    }
+		
+}
+	
+

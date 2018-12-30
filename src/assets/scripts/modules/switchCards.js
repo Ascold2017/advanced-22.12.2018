@@ -1,7 +1,7 @@
 'use strict';
 
-const switchCards = (linkAuth, flipContainer, signInReset) => {
-    document.body.addEventListener('click', (e) => {
+export const switchCards = (linkAuth, flipContainer, signInReset) => {
+    document.body.addEventListener('click', function(e) {
         //Click in auth or reset or out of flip container
         if( (!e.target.closest('.flip') || e.target === signInReset) ) {
             //If click out of front flip container - no flip

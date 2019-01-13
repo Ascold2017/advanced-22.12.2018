@@ -1,8 +1,9 @@
 'use strict';
 import svgDiagrams from '@modules/svgDiagrams';
+import preloader from '@modules/preloader';
 
 document.addEventListener('DOMContentLoaded', () => {
-
+    preloader();
     svgDiagrams([
         { category: 1, percents: 80, title: 'PugJs' },
         { category: 1, percents: 50, title: 'CSS3' },

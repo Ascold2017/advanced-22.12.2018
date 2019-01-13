@@ -19,7 +19,7 @@ mixin card-avatar(subClass, title, subtitle, nosvg)
 
 mixin checkbox(name, title, inputClass, id)
 	label(class="checkbox " + inputClass)
-		input(type="checkbox", name=name, id=id, class="checkbox__input" required)
+		input(type="checkbox", name=name, id=id, class="checkbox__input")
 		span.checkbox__span
 			i(aria-hidden="true" class="fa fa-check")
 		span.checkbox__title= title
@@ -35,7 +35,7 @@ mixin logInput(iconClass, typeInput, placeholderInput, subclass, inputClass, nam
 	div(class="login-input " + inputClass)
 		span(class="login-input__icon "+subclass)
 			i(aria-hidden="true" class="fa "+iconClass)
-		input(id=name type=typeInput, placeholder=placeholderInput name=name required).login-input__input
+		input(id=name type=typeInput, placeholder=placeholderInput name=name).login-input__input
 
 mixin parallax-block(className)
 	div(class=`${className} parallax-block`)
@@ -52,3 +52,9 @@ mixin socials(className)
 			li.socials__item
 				a(href="#").socials__link
 					i(aria-hidden="true" class="fa fa-"+social)
+
+mixin preloader
+	.preloader#preloader
+		.preloader__icon
+			.preloader__circle
+			#preloader-counter.preloader__percent 0%

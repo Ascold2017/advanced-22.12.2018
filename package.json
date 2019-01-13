@@ -11,7 +11,8 @@
     "dev:mpa": "cross-env NODE_ENV=development gulp",
     "dev:spa": "webpack-dev-server --mode=development --config webpack.spa.config.js --open --hot",
     "build": "cross-env NODE_ENV=production gulp build && webpack --mode=production --config webpack.spa.config.js --progress --hide-modules",
-    "reg": "node reg-util.js"
+    "reg": "node reg-util.js",
+    "test": "cross-env NODE_ENV=development jest"
   },
   "keywords": [],
   "author": "",
@@ -19,7 +20,9 @@
   "devDependencies": {
     "autoprefixer": "^9.1.5",
     "babel-core": "^6.26.3",
+    "babel-jest": "^23.6.0",
     "babel-loader": "^7.1.5",
+    "babel-plugin-module-resolver": "^3.1.1",
     "babel-preset-env": "^1.7.0",
     "babel-preset-stage-0": "^6.24.1",
     "browser-sync": "^2.24.7",
@@ -69,11 +72,29 @@
   ],
   "dependencies": {
     "font-awesome": "^4.7.0",
+    "html-loader-jest": "^0.2.1",
+    "jest": "^23.6.0",
     "normalize.css": "^7.0.0",
     "promptly": "^3.0.3",
     "pug": "^2.0.3",
     "request": "^2.87.0",
     "signale": "^1.1.0",
     "vue": "2.5.13"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.js$": "<rootDir>/node_modules/babel-jest",
+      "^.+\\.html?$": "html-loader-jest"
+    },
+    "moduleFileExtensions": [
+      "js",
+      "pug"
+    ],
+    "transformIgnorePatterns": [
+      "<rootDir>/node_modules/"
+    ],
+    "modulePaths": [
+      "<rootDir>"
+    ]
   }
 }

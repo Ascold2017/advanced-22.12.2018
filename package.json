@@ -49,6 +49,7 @@
     "gulp-svg-sprite": "^1.4.0",
     "gulp-svgmin": "^2.0.0",
     "html-webpack-plugin": "^3.2.0",
+    "jest-transform-pug": "^0.1.0",
     "postcss-advanced-variables": "^2.3.3",
     "postcss-easy-import": "^3.0.0",
     "postcss-inline-svg": "^3.1.1",
@@ -84,7 +85,7 @@
   "jest": {
     "transform": {
       "^.+\\.js$": "<rootDir>/node_modules/babel-jest",
-      "^.+\\.html?$": "html-loader-jest"
+      "\\.(pug)$": "jest-transform-pug"
     },
     "moduleFileExtensions": [
       "js",

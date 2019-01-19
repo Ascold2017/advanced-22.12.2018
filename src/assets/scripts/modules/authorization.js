@@ -37,7 +37,7 @@ const authorization =  (signInForm) => {
         }
     }
 
-    //Submit data to server from ajax
+    //Submit data to server by ajax
     function submitForm(){
 
         let data = {
@@ -49,14 +49,14 @@ const authorization =  (signInForm) => {
         console.log('Name', data.name);
         console.log('Password', data.password);
         console.groupEnd();
-        // TODO - send request with data and save token in localStorage
-        /*
+        
         apiRequest({ url: '/login', method: 'POST', data })
         .then((data) => {
-            localStorage.setItem('token', data.token);
+            // save token and calculated date of expire token
+            localStorage.setItem('token', JSON.stringify({ token: data.token, expired_at: Date.now() + ttl * 1000 }));
             window.location.href = '/admin';
         })
-        */
+        
     }
 
     //Apply input event to inputs

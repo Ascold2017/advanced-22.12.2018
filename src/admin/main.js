@@ -23,7 +23,7 @@ if (tokenData) {
     initApp();
   }
   else {
-    store.commit(SET_TOKEN_DATA, { token, expiredAt });
+    //store.commit(SET_TOKEN_DATA, { token, expiredAt });
     initApp();
   }
 } else {

@@ -13,6 +13,7 @@ export default new VueRouter({
     routes: [
         route({ name: 'home', path: '/', folderName: 'about', pageName: 'about' }),
         route({ name: 'about', path: '/about', folderName: 'about', pageName: 'about' }),
+        route({ name: 'blog', path: '/blog', folderName: 'blog', pageName: 'blog' }),
         route({ name: '404', path: '*', folderName: '404', pageName: 'index' })
     ]
 });

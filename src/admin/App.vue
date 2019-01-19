@@ -4,15 +4,18 @@
         app-header
         app-tabs
         router-view
+        notification
 </template>
 
 <script>
 import AppHeader from '@admin/components/common/navigation/AppHeader';
 import AppTabs from '@admin/components/common/navigation/AppTabs';
+import Notification from '@admin/components/common/notification/notification';
 export default {
   components: {
     AppHeader,
-    AppTabs
+    AppTabs,
+    Notification
   }
 };
 </script>

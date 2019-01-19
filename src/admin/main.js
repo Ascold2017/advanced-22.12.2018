@@ -2,6 +2,12 @@ import Vue from 'vue';
 import App from './App.vue';
 import router from './router';
 import store from './store';
+import VueMoment from 'vue-moment';
+import moment from 'moment'
+
+require('moment/locale/ru');
+moment.locale('ru');
+Vue.use(VueMoment, {moment});
 
 const initApp = () => {
     Vue.config.productionTip = false;

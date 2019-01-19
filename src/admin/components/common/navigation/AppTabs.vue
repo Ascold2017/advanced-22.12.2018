@@ -11,7 +11,8 @@ export default {
         return {
             pages: [
                 { name: 'about', title: 'Скиллы' },
-                // TODO works and blog tab
+                { name: 'blog', title: 'Блог' }
+                // TODO works tab
             ],
         };
     },

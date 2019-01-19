@@ -32,7 +32,20 @@ const config = {
         loader: "vue-loader",
         options: {
           loaders: {
-            scss: ["vue-style-loader", "css-loader", "postcss-loader"]
+            sass: [
+              'vue-style-loader',
+              'css-loader',
+              'sass-loader?indentedSyntax',
+              {
+                  loader: 'sass-resources-loader',
+                  options: {
+                      resources: [
+                          './src/admin/styles/common/variables.sass',
+                          './src/admin/styles/common/mixins.sass',
+                      ],
+                  },
+              },
+          ],
           }
         }
       },
@@ -52,7 +65,11 @@ const config = {
   },
   resolve: {
     alias: {
-      vue$: "vue/dist/vue.esm.js"
+      vue$: "vue/dist/vue.esm.js",
+      '@admin/img': path.resolve(__dirname, 'src/admin/assets/img'),
+      '@admin/assets': path.resolve(__dirname, 'src/admin/assets'),
+      '@admin/styles': path.resolve(__dirname, 'src/admin/styles'),
+      '@admin': path.resolve(__dirname, 'src/admin'),
     },
     extensions: ["*", ".js", ".vue", ".json"]
   },

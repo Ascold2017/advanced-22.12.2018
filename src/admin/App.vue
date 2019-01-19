@@ -1,13 +1,16 @@
 <template lang="pug">
-  app-title
+  #app
+    .container
+        app-tabs
+        router-view
 </template>
 
 <script>
+import AppTabs from '@admin/components/common/navigation/AppTabs';
 export default {
   components: {
-    appTitle: require("./components/title").default
+    AppTabs
   }
 };
 </script>
-<style>
-</style>
+<style lang="sass" src="./styles/common/base.sass"></style>

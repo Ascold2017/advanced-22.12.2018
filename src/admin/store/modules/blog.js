@@ -54,7 +54,7 @@ export default {
     },
 
     getters: {
-        posts: ({ posts }) => posts,
+        posts: (state) => state.posts,
 
         title: ({ title }) => title,
         date: ({ date }) => date,
@@ -132,7 +132,7 @@ export default {
             getPosts({ url: `/posts/58`, method:'GET' })
             .then(data => {
                 commit(SET_POSTS, data);
-                resolve(data)
+                resolve(data);
             })
             .catch(reject)
         }),

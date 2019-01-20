@@ -1,7 +1,7 @@
 <template lang="pug">
 .blog-posts
     ul.blog-posts__list
-        li(v-for="item in posts" :key="item.id" @click.stop="choosePost(item.id)").blog-posts__item
+        li(v-for="item in posts" :key="item.id" @click="choosePost(item.id)").blog-posts__item
             .blog-posts__item-top
                 h2.blog-posts__title.subtitle {{ item.title }}
                 button(type="button" @click.stop="deletePost(item.id)").remove-btn X
@@ -10,6 +10,7 @@
 </template>
 
 <script>
+
 export default {
     name: 'BlogPosts',
     props: {

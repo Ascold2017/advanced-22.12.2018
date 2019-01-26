@@ -19,7 +19,7 @@ import {
 
     VALIDATE_SKILL
 } from '@admin/store/actions/about';
-//import apiRequest from '@admin/helpers/apiRequest';
+import apiRequest from '@admin/helpers/apiRequest';
 import { getSkills, createSkill } from '@admin/helpers/mockRequest';
 import Vue from 'vue';
 
@@ -119,8 +119,8 @@ export default {
 
     actions: {
         [GET_SKILLS]: ({ commit }) => new Promise((resolve, reject) => {
-            //apiRequest({ url: `/skills/58`, method: 'GET' })
-            getSkills({ url: `/skills/58`, method: 'GET' }) // 58 - is your userId (example!!!)
+            apiRequest({ url: `/skills/58`, method: 'GET' })
+            //getSkills({ url: `/skills/58`, method: 'GET' }) // 58 - is your userId (example!!!)
             .then(data => {
                 commit(SET_SKILLS, data);
                 resolve(data);

@@ -1,11 +1,19 @@
 <template lang="pug">
     header.header
         h1.header__title Панель администрирования
-        a(href="/").header__link Вернуться на сайт
+        a(href="#" @click.prevent="logout").header__link Вернуться на сайт
 </template>
 <script>
+import { LOG_OUT } from '@admin/store/actions/auth';
+import { mapActions } from 'vuex';
 export default {
-    name: 'AppHeader'
+    name: 'AppHeader',
+    methods: {
+        ...mapActions([LOG_OUT]),
+        logout() {
+            this[LOG_OUT]();
+        }
+    }
 }
 </script>
 

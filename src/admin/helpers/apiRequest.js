@@ -33,10 +33,13 @@ const apiRequest = ({ url, method, data, headers = {}, isRefresh, params, ...arg
     }
     
     const isTokenExpired = store.state.auth.expiredAt <= +new Date();
-
     if (store.state.auth.token && isTokenExpired) {
         
-        !isRefresh && waitRequestStack.push({ reqData: {url, method, headers, data, fromWaitingStack: true, ...args}, resolve, reject });
+        !isRefresh && waitRequestStack.push({
+            reqData: {url, method, headers, data, fromWaitingStack: true, ...args},
+            resolve,
+            reject
+        });
         // if this request is not regenerateToken - call REFRESH TOKEN and set isRefreshTokenRequest to true
         if (!isRefresh && !isRefreshTokenRequest) {
             isRefreshTokenRequest = true;
@@ -47,7 +50,7 @@ const apiRequest = ({ url, method, data, headers = {}, isRefresh, params, ...arg
                 Promise.all(waitRequestStack.map(waitingRequest => request(waitingRequest)))
             })
         }
-        else if (isRefresh || isLogout) {
+        else if (isRefresh) {
             return request({ reqData: {headers, method, url, data}, resolve, reject });
         }
     } else {

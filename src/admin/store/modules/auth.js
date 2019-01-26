@@ -9,13 +9,6 @@ export default {
     state: {
         token: null,
         expiredAt: null,
-
-        user: {
-            id: null,
-            name: null,
-            createdAt: null,
-            updatedAt: null
-        }
     },
     mutations: {
         [SET_TOKEN_DATA]: (state, { token, expiredAt }) => {

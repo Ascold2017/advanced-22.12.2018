@@ -1,4 +1,4 @@
-// import apiRequest from '@modules/apiRequest';
+import apiRequest from '@modules/apiRequest';
 
 const authorization =  (signInForm) => {
     
@@ -53,7 +53,7 @@ const authorization =  (signInForm) => {
         apiRequest({ url: '/login', method: 'POST', data })
         .then((data) => {
             // save token and calculated date of expire token
-            localStorage.setItem('token', JSON.stringify({ token: data.token, expired_at: Date.now() + ttl * 1000 }));
+            localStorage.setItem('token_data', JSON.stringify({ token: data.token, expired_at: Date.now() + data.ttl * 1000 }));
             window.location.href = '/admin';
         })
         
